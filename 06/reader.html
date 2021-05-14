@@ -1,0 +1,20 @@
+<script src="https://cdn.socket.io/4.0.2/socket.io.min.js" integrity="sha384-Bkt72xz1toXkj/oEiOgkQwWKbvNYxTNWMqdon3ejP6gwq53zSo48nW5xACmeDV0F" crossorigin="anonymous"></script>
+<p>Пользователей онлайн: <b id="online">0</b></p>
+
+<script type="text/javascript">
+
+    const socket = io('localhost:3000');
+
+    socket.on('connect', function() {
+        console.log(`Successful connected to server`);
+    });
+
+    socket.on('USERS_ONLINE', function(data) {
+      document.getElementById('online').textContent = data.msg;
+    })
+
+    socket.on('NEW_CONN_EVENT', function (data) {
+        document.getElementById('online').textContent = data.currentConnect;
+    });
+
+  </script>
