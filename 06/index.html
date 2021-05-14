@@ -63,15 +63,9 @@
       addMessage(data.msg)
     })
 
-    socket.on('reconnect', function() {
-      console.log('User reconnect');
-    });
-
     socket.on('USER_MSG', (data) => {
       addMessage(data.msg)
     })
-
-    socket.on('disconnect', )
   
     document.getElementById('send').onclick = function() {
       const msg = document.getElementById('input').value
